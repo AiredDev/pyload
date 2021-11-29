@@ -14,7 +14,7 @@ The payload should work regardless of attacker or host operating system, so long
 You may wish to package `client.py` into an executable file format with a tool such as pyinstaller (for windows) to reduce the number of clicks a target needs to run the payload.
 
 Ideas for future expansion:
-	* More meterpreter-style commands, like `screenshot` or `getsystem`
-	* Enter attacker IP address during runtime
-	* Help menu
-	* General robustness
+* More meterpreter-style commands, like `screenshot` or `getsystem`
+* Enter attacker IP address during runtime
+* Help menu
+* General robustness
